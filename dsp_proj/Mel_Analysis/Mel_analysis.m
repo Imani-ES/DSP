@@ -1,7 +1,7 @@
-[matthew, fs_m] = audioread("matthew_speak.mp3");
+[matthew, fs_m] = audioread("Sound\matthew_speak.mp3");
 
 % Compare regular stft with mel spectrogram -- use matthew as example
-%sound(matthew,fs_m);
+sound(matthew,fs_m);
 t_m = (0:numel(matthew)-1)/fs_m;
 figure;
 tiledlayout(4,1)
