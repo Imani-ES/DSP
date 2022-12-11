@@ -42,4 +42,24 @@ for i = 1:12
 
 end
 
+%Find mean for each 
+figure;
 
+nexttile
+matt_means = mean(mat_co);
+plot(matt_means);
+title("Matthew")
+
+%Get new audio from same speaker
+nexttile
+[mat_new, fs_mn] = audioread("Sound\matthew_same.mp3");
+t_mn = (0:numel(mat_new)-1)/fs_mn;
+sound(mat_new,fs_mn);
+mat_new_co = mfcc(mat_new,fs_mn,"LogEnergy","Ignore");
+matt_new_means = mean(mat_new_co);
+plot(matt_new_means);
+title("Matthew_new");
+
+nexttile
+plot(matt_means - matt_new_means);
+title("Matthew vs Matthew new")
